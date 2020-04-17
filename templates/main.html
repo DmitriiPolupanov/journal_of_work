@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 align="center">Works log</h2>
+    {% for i in list %}
+        <table width="100%">
+        <br>
+        <h1>Action # {{ i[0] }}</h1>
+            <tr>
+                <th width="40%">
+                    <nav class="navbar navbar-light bg-light">
+                        Title of activity
+                    </nav>
+                </th>
+                <th width="15%">
+                    <nav class="navbar navbar-light bg-light">
+                        Team leader
+                    </nav>
+            	</th>
+                <th width="10%">
+                    <nav class="navbar navbar-light bg-light">
+                        Duration
+                    </nav>
+       	        </th>
+                <th width="20%">
+                    <nav class="navbar navbar-light bg-light">
+                        List of collaborators
+                    </nav>
+                </th>
+                <th width="30%">
+                    <nav class="navbar navbar-light bg-light">
+                        Is finished
+                    </nav>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                        {{ i[1] }}
+                    </nav>
+                </td>
+                <td>
+                    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                        {{ " ".join(i[2]) }}
+                    </nav>
+                </td>
+                <td>
+                    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                        {{ i[3] }} hours
+                    </nav>
+                </td>
+                <td>
+                    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                         {{ i[4] }}
+                    </nav>
+                </td>
+                <td>
+                    {% if i[5] == 0 %}
+                        <nav class="navbar navbar-light" style="background-color: #FFE5E4;">
+                            Is not finished
+                        </nav>
+                    {% else %}
+                        <nav class="navbar navbar-light" style="background-color: #D7FFA9;">
+                            Finished
+                        </nav>
+                    {% endif %}
+                </td>
+            </tr>
+    {% endfor %}
+{% endblock %}
